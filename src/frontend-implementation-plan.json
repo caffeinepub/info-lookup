@@ -1,0 +1,194 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Info Lookup — Number & Vehicle Registration Lookup (Dark Hacker Theme)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Build a single-page UI with two distinct lookup tools (Number Info and Vehicle Info), each with input, action, and results area.",
+      "acceptanceCriteria": [
+        "The UI clearly offers two distinct lookup sections (tabs or segmented panels): “Number Info” and “Vehicle Info”.",
+        "Both sections are accessible without authentication.",
+        "Each section has an input field, a primary action button to run the lookup, and an area to display results."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the single-page app shell and render two lookup sections using shadcn-ui (e.g., Tabs for switching and Card for panels). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/lookup/NumberInfoPanel.tsx",
+          "operation": "create",
+          "description": "Create the Number Info lookup section UI: input, primary action button, and results display region; designed to be embedded in the tabs/panels. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/lookup/VehicleInfoPanel.tsx",
+          "operation": "create",
+          "description": "Create the Vehicle Registration Info lookup section UI: input, primary action button, and results display region; designed to be embedded in the tabs/panels. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/lookup/ResultViewer.tsx",
+          "operation": "create",
+          "description": "Create a reusable result viewer to render readable responses (pretty-printed JSON and/or key/value layout) and show empty-state messaging in English. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement Number Info lookup via HTTP request to the provided URL with num= query parameter, including loading and error states.",
+      "acceptanceCriteria": [
+        "When the user enters a value and runs the lookup, the app performs an HTTP request to `https://usesirosint.vercel.app/api/numinfo?key=salaarz&num=<USER_INPUT>`.",
+        "A loading state is shown while the request is in progress.",
+        "On success, the response is rendered in a readable format (pretty-printed JSON or a key/value table).",
+        "On failure (network error or non-2xx), a clear English error message is shown and the UI remains usable."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useNumberInfoQuery.ts",
+          "operation": "create",
+          "description": "Implement the React Query hook for Number Info lookup, performing a fetch to `https://usesirosint.vercel.app/api/numinfo?key=salaarz&num=` + encoded user input, and surfacing loading/success/error states."
+        },
+        {
+          "path": "frontend/src/components/lookup/NumberInfoPanel.tsx",
+          "operation": "modify",
+          "description": "Wire the Number Info UI to use the React Query hook, show an in-progress loading state, render success results via ResultViewer, and show a clear English error message on failure. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Implement Vehicle Registration Info lookup via HTTP request to the provided URL with reg= query parameter, including loading and error states.",
+      "acceptanceCriteria": [
+        "When the user enters a value and runs the lookup, the app performs an HTTP request to `https://vehicle-number-info.snipy-owner.workers.dev/?reg=<USER_INPUT>`.",
+        "A loading state is shown while the request is in progress.",
+        "On success, the response is rendered in a readable format (pretty-printed JSON or a key/value table).",
+        "On failure (network error or non-2xx), a clear English error message is shown and the UI remains usable."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useVehicleInfoQuery.ts",
+          "operation": "create",
+          "description": "Implement the React Query hook for Vehicle Registration Info lookup, performing a fetch to `https://vehicle-number-info.snipy-owner.workers.dev/?reg=` + encoded user input, and surfacing loading/success/error states."
+        },
+        {
+          "path": "frontend/src/components/lookup/VehicleInfoPanel.tsx",
+          "operation": "modify",
+          "description": "Wire the Vehicle Info UI to use the React Query hook, show an in-progress loading state, render success results via ResultViewer, and show a clear English error message on failure. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Add a responsive, desktop-friendly layout that uses wide centered container and/or multi-column arrangement on desktop and stacks on mobile.",
+      "acceptanceCriteria": [
+        "On desktop widths, the layout uses a wider centered container and/or multi-column arrangement to avoid overly stretched text.",
+        "On mobile widths, the layout stacks content vertically with comfortable spacing and touch-friendly controls.",
+        "No horizontal scrolling is required on common viewport sizes."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Implement a responsive page structure with a centered container and a desktop-friendly arrangement (e.g., two-column layout for input/results within a panel at larger breakpoints) while stacking vertically on mobile. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/lookup/NumberInfoPanel.tsx",
+          "operation": "modify",
+          "description": "Adjust the Number Info panel layout for desktop (input/action and results can use columns) and mobile (stacked) with touch-friendly controls. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/lookup/VehicleInfoPanel.tsx",
+          "operation": "modify",
+          "description": "Adjust the Vehicle Info panel layout for desktop (input/action and results can use columns) and mobile (stacked) with touch-friendly controls. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Apply a consistent dark hacker/terminal theme with high-contrast English UI text across both lookup sections.",
+      "acceptanceCriteria": [
+        "The default appearance is a dark theme with high contrast and a coherent, terminal/cyber-inspired visual style.",
+        "All labels, buttons, placeholders, errors, and headings are in English.",
+        "The theme is applied consistently across both lookup sections (typography, spacing, colors, components)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Create global styling for a dark hacker theme (dark background, high-contrast foreground, terminal-green accents) and ensure the app defaults to dark mode via the document/body styling."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Ensure headings, labels, placeholders, and button text are English and consistent with the hacker/terminal theme; apply consistent typography and spacing across both tools. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/lookup/ResultViewer.tsx",
+          "operation": "modify",
+          "description": "Ensure result rendering uses readable monospace/terminal-inspired formatting and English empty/error helper text consistent with the theme. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Use React Query for both lookups with caching keyed by the user input to avoid unnecessary refetching.",
+      "acceptanceCriteria": [
+        "Each lookup uses React Query (or equivalent project-standard query abstraction) with a query key that includes the user input.",
+        "Repeating a previously executed lookup shows cached data immediately and only refetches according to standard query behavior (manual refetch or configured stale time)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useNumberInfoQuery.ts",
+          "operation": "modify",
+          "description": "Ensure the query key includes the entered number and configure caching behavior (e.g., a reasonable staleTime) so repeated lookups reuse cached results unless explicitly refetched."
+        },
+        {
+          "path": "frontend/src/hooks/useVehicleInfoQuery.ts",
+          "operation": "modify",
+          "description": "Ensure the query key includes the entered registration and configure caching behavior (e.g., a reasonable staleTime) so repeated lookups reuse cached results unless explicitly refetched."
+        },
+        {
+          "path": "frontend/src/components/lookup/NumberInfoPanel.tsx",
+          "operation": "modify",
+          "description": "Use React Query patterns that preserve cached results when repeating the same lookup, and keep the UI usable during refetch/loading transitions. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/lookup/VehicleInfoPanel.tsx",
+          "operation": "modify",
+          "description": "Use React Query patterns that preserve cached results when repeating the same lookup, and keep the UI usable during refetch/loading transitions. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Add and render the required generated static images from frontend/public/assets/generated as part of the hacker-themed design.",
+      "acceptanceCriteria": [
+        "Generated images are placed under `frontend/public/assets/generated/`.",
+        "The UI visibly uses the generated images (e.g., subtle background/hero and a small app mark) without routing image serving through the backend."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/hacker-bg.dim_1920x1080.png",
+          "operation": "create",
+          "description": "Add the generated static image asset for the dark terminal-style background: frontend/public/assets/generated/hacker-bg.dim_1920x1080.png."
+        },
+        {
+          "path": "frontend/public/assets/generated/hacker-mark.dim_256x256.png",
+          "operation": "create",
+          "description": "Add the generated static image asset for the app mark icon: frontend/public/assets/generated/hacker-mark.dim_256x256.png."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Wire frontend/public/assets/generated/hacker-bg.dim_1920x1080.png into the global UI presentation (e.g., as the page background) while keeping text readable and high-contrast."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Render the app mark image frontend/public/assets/generated/hacker-mark.dim_256x256.png in the UI (e.g., header/brand area) as part of the hacker-themed design. Verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}

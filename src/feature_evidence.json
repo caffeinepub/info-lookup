@@ -1,0 +1,144 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-single-page-website-ui-with-two-lookup-tools-1-number-info-lookup-and-2-vehicle-registration-info-lookup",
+      "featureTitle": "Create a single-page website UI with two lookup tools: (1) Number Info lookup and (2) Vehicle Registration Info lookup.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/lookup/NumberInfoPanel.tsx",
+        "frontend/src/components/lookup/ResultViewer.tsx",
+        "frontend/src/components/lookup/VehicleInfoPanel.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-the-number-info-lookup-by-calling-the-provided-api-endpoint-using-the-user-entered-number-appended-to-the-num-query-parameter-https-usesirosint-vercel-app-api-numinfo-key-salaarz-num",
+      "featureTitle": "Implement the Number Info lookup by calling the provided API endpoint using the user-entered number appended to the `num=` query parameter: https://usesirosint.vercel.app/api/numinfo?key=salaarz&num=",
+      "files": [
+        "frontend/src/components/lookup/NumberInfoPanel.tsx",
+        "frontend/src/hooks/useNumberInfoQuery.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-the-vehicle-registration-info-lookup-by-calling-the-provided-api-endpoint-using-the-user-entered-registration-appended-to-the-reg-query-parameter-https-vehicle-number-info-snipy-owner-workers-dev-reg",
+      "featureTitle": "Implement the Vehicle Registration Info lookup by calling the provided API endpoint using the user-entered registration appended to the `reg=` query parameter: https://vehicle-number-info.snipy-owner.workers.dev/?reg=",
+      "files": [
+        "frontend/src/components/lookup/VehicleInfoPanel.tsx",
+        "frontend/src/hooks/useVehicleInfoQuery.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-responsive-desktop-friendly-layout-desktop-mode-that-makes-good-use-of-large-screens-while-remaining-usable-on-mobile",
+      "featureTitle": "Add a responsive, desktop-friendly layout (“desktop mode”) that makes good use of large screens while remaining usable on mobile.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/lookup/NumberInfoPanel.tsx",
+        "frontend/src/components/lookup/VehicleInfoPanel.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-consistent-dark-hacker-theme-across-the-ui-dark-background-high-contrast-text-terminal-inspired-accents-with-all-user-facing-text-in-english",
+      "featureTitle": "Apply a consistent dark “hacker” theme across the UI (dark background, high-contrast text, terminal-inspired accents), with all user-facing text in English.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/lookup/ResultViewer.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-use-react-query-for-lookup-requests-and-cache-results-per-query-input-to-avoid-unnecessary-re-fetching-when-repeating-the-same-lookup",
+      "featureTitle": "Use React Query for lookup requests and cache results per query input to avoid unnecessary re-fetching when repeating the same lookup.",
+      "files": [
+        "frontend/src/components/lookup/NumberInfoPanel.tsx",
+        "frontend/src/components/lookup/VehicleInfoPanel.tsx",
+        "frontend/src/hooks/useNumberInfoQuery.ts",
+        "frontend/src/hooks/useVehicleInfoQuery.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-the-required-generated-static-images-to-the-project-and-render-them-in-the-ui-as-part-of-the-hacker-themed-design-served-from-frontend-public-assets-generated",
+      "featureTitle": "Add the required generated static images to the project and render them in the UI as part of the hacker-themed design (served from frontend/public/assets/generated).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

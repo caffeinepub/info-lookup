@@ -1,0 +1,11 @@
+{
+  "frontend/src/App.tsx": "Main application component with dark hacker theme, header with logo, tabbed interface for Number Info and Vehicle Info lookups, and footer with attribution.",
+  "frontend/src/components/lookup/NumberInfoPanel.tsx": "Number lookup panel component with input form, search button, and results display using React Query for API calls.",
+  "frontend/src/components/lookup/VehicleInfoPanel.tsx": "Vehicle registration lookup panel component with input form, search button, and results display using React Query for API calls.",
+  "frontend/src/components/lookup/ResultViewer.tsx": "Reusable result viewer component that displays loading states, errors, empty states, and formatted JSON results in a scrollable area.",
+  "frontend/src/hooks/useNumberInfoQuery.ts": "React Query hook for fetching number information from the API with caching and error handling.",
+  "frontend/src/hooks/useVehicleInfoQuery.ts": "React Query hook for fetching vehicle registration information from the API with caching and error handling.",
+  "frontend/src/hooks/useQueries.ts": "Empty placeholder file as all queries are handled in feature-specific hooks.",
+  "frontend/src/index.css": "Global styles with dark hacker theme using OKLCH colors, terminal green accent color, and monospace font family.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with terminal color token and monospace font family for the hacker aesthetic."
+}

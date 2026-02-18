@@ -1,0 +1,20 @@
+{
+  "backend/main.mo": "Minimal Motoko canister actor with no methods defined.",
+  "feature_evidence.json": "Aggregates feature definitions, referenced files, components, tests, and confidence metadata for project features.",
+  "frontend-file-summaries.txt": "Contains prewritten short summaries for all frontend source files.",
+  "frontend/index.css": "Defines global Tailwind layers and dark‑theme OKLCH color tokens for the UI, applying base background and text styles.",
+  "frontend/index.html": "Basic HTML shell that mounts the React app and loads main.tsx.",
+  "frontend/src/App.tsx": "Main React layout with dark hacker theme, header, tabbed lookup interface, and footer attribution.",
+  "frontend/src/components/lookup/NumberInfoPanel.tsx": "Phone‑number lookup UI with input handling, query execution via React Query, and result display.",
+  "frontend/src/components/lookup/ResultViewer.tsx": "Displays loading, error, empty, or formatted JSON result states inside a scrollable area.",
+  "frontend/src/components/lookup/VehicleInfoPanel.tsx": "Vehicle‑registration lookup UI using input, search action, React Query fetch, and result rendering.",
+  "frontend/src/hooks/useActor.ts": "React hook that creates and manages an authenticated or anonymous backend actor and refreshes dependent queries when identity changes.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides a React context and provider for managing Internet Identity authentication with AuthClient, including login state and stored identity handling.",
+  "frontend/src/hooks/useNumberInfoQuery.ts": "Defines a React Query hook that fetches number information from a remote API using the provided number parameter.",
+  "frontend/src/hooks/useQueries.ts": "Empty placeholder file indicating queries are defined in feature-specific hooks.",
+  "frontend/src/hooks/useVehicleInfoQuery.ts": "Defines a React Query hook that retrieves vehicle registration info from an external API based on a registration value.",
+  "frontend/src/index.css": "Tailwind CSS setup with custom dark theme variables, base styles, and terminal-inspired utility classes.",
+  "frontend/src/main.tsx": "Initializes the React app, wrapping it with React Query and InternetIdentityProvider before rendering.",
+  "frontend/tailwind.config.js": "Tailwind configuration extending theme colors, typography, containers, animations, and linking required plugins.",
+  "project_state.json": "Describes project state, features, requirements, and design notes for a dark-themed lookup website using two external APIs."
+}
